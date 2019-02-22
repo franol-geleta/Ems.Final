@@ -10,19 +10,21 @@ import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
-@Data
 @Entity
-@Table(name="announcement")
-
-public class Announcement {
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+@Data
+@Table(name="question")
+public class Question {
+@Id
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 private long id;
-@NotBlank(message="Title Can't be empty")	
-@Column(name="title")	
-private String title;
+@NotBlank(message="Description can't be null")
+@Column(name="description")
+private String Description;
+@Column(name="question_num")
+private long numQuestion;
 
-@Column(name="category ")	
-private String category;
+
+
+
 
 }

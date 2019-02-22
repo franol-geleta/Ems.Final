@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ <title>Sign in</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+<h2>Question</h2>
+
+  <form class="form-horizontal" role="form" method="POST" th:action="@{/question_list}" th:object="${question}">
+
+<table class="table table-striped">
+<tr>
+<th>#ID</th>
+<th>Description</th>
+<th>Number of Questions</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+<tbody>
+
+<tr th:each="message : ${question}">
+
+<td th:text ="${message.id}"></td>
+<td th:text ="${message.description}" ></td>
+<td th:text ="${message.question_num}"></td>
+<td><a class="btn btn-primary" href="${updateURL}" role="button">Update</a></td>
+<td><a class="btn btn-primary" href="${deleteURL}" role="button">Delete</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tr>
+<td>
+<a class="btn btn-primary" th:href="@{/}">Add Question</a>
+
+</td>
+</tr>
+</table>
+
+
+
+</form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
