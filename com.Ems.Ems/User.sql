@@ -1,5 +1,5 @@
 create database Ems_db;
-use EMS_db;
+use Ems_db;
 CREATE USER 'rr'@'localhost' IDENTIFIED BY '6085';
 # Database Grants
 GRANT SELECT ON Ems_db .* to 'rr'@'localhost';
@@ -13,6 +13,11 @@ CREATE TABLE  `role` (
   `role` varchar(255) default NULL,
   PRIMARY KEY  (`role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE  `announcement` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255)
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE  `user` (
