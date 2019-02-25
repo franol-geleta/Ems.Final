@@ -3,7 +3,7 @@
  xmlns:th="http://www.thymeleaf.org">
 
 <head>
- <title>Add Question</title>
+ <title>Add Employee</title>
  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -11,27 +11,31 @@
 </head>
 <body>
 <div class="container">
-<h2>Question</h2>
+<h2>Employees</h2>
 
 <table class="table table-striped">
 <tr>
 <th>#ID</th>
-<th>Title</th>
-<th>Description</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Sex</th>
+<th>Job Title</th>
 
 </tr>
 <tbody>
 
-<tr th:each="msg: ${questionlist}">
+<tr th:each="msg: ${employeelist}">
 <td th:text ="${msg.id}"></td>
-<td th:text ="${msg.description}" ></td>
-<td th:text ="${msg.title}"></td>
+<td th:text ="${msg.firstname}" ></td>
+<td th:text ="${msg.lastname}"></td>
+<td th:text ="${msg.sex}"></td>
+<td th:text ="${msg.jobtitle}"></td>
 
 </tr>
 
 </tbody>
 </table>
-<a class="btn btn-primary" th:href="@{/question/addQuestion/}" th:value="addURL" role="button" href="${addURL}">Add Question</a>
+<a class="btn btn-primary" th:href="@{/employee/addEmployee/}" th:value="addURL" role="button" href="${addURL}">Add Employee</a>
 
 
 </div>

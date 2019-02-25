@@ -6,25 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
 
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="question")
-public class Question {
+@Table(name="employee")
+public class Employee {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private long id;
-@NotBlank(message="Description can't be null")
-@Column(name="description")
-private String Description;
-@Column(name="title")
-private String Title;
 
-
-
-
+@Column(name="firstname")
+private String firstname;
+@Column(name="lastname")
+private String lastname;
+@Column(name="sex")
+private String sex;
+@Column(name="jobtitle")
+private String jobtitle;
 
 }
+

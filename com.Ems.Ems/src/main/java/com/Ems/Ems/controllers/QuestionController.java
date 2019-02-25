@@ -27,7 +27,7 @@ import com.Ems.Ems.services.QuestionService;
 	   @RequestMapping(value = "/list", method = RequestMethod.GET)
        public ModelAndView list() {
 
-       ModelAndView model=new ModelAndView("question_list");
+       ModelAndView model=new ModelAndView("/user/question_list");
        List<Question> questionlist= questionService.getAllquestions();
        model.addObject("questionlist",questionlist);
       
@@ -41,7 +41,7 @@ import com.Ems.Ems.services.QuestionService;
         Question question=new Question();
         
         model.addObject("questionForm",question);
-        model.setViewName("question_form");
+        model.setViewName("/user/question_form");
         return model;
        
 		}
@@ -52,22 +52,22 @@ import com.Ems.Ems.services.QuestionService;
 	        Question question=questionService.getQuestionById(id);
 	        
 	        model.addObject( "questionForm",question);
-	        model.setViewName("question_form");
+	        model.setViewName("/user/question_form");
 	        return model;
 	       
 			}
-	   @RequestMapping(value = "/saveQuestion/", method = RequestMethod.POST)
+	   @RequestMapping(value ="/saveQuestion/", method = RequestMethod.POST)
 	   public ModelAndView save(@ModelAttribute("questionForm") Question question) {
 
 	        questionService.saveOrUpdate(question);
-	        return new ModelAndView("/redirect:/question/list");
+	        return new ModelAndView("redirect:/question/list");
 	       
 			}
-	   @RequestMapping(value = "/deleteQuestion/{id }", method = RequestMethod.POST)
+	   @RequestMapping(value = "/deleteQuestion/{id}", method = RequestMethod.GET)
 	   public ModelAndView delete(@PathVariable("id") long id) {
 
 	        questionService.deleteQuestion(id);
-	        return new ModelAndView("/redirect:/question/list");
+	        return new ModelAndView("redirect:/question/list");
 	       
 			}
 
